@@ -33,7 +33,7 @@ cd backend
 npm install
 ```
 
-#### Set up environment variables
+#### 3. Set up environment variables
 Create a ```.env``` file in the backend directory including
 ```env
 PORT=8000
@@ -41,7 +41,7 @@ MONGO_URI=your-mongodb-connection-string
 JWT_SECRET=your-jwt-secret
 ```
 
-#### Run the application
+#### 4. Run the application
 1. Frontend
 ```bash
 npm run dev
