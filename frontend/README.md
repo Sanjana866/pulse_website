@@ -1,9 +1,11 @@
-## React + Vite
+# React + Vite
 
-This application uses React + Vite for it's frontend. The styling is done with Tailwind CSS.
+This application uses **React** with **Vite** for lightning-fast frontend development. Styling is done using **Tailwind CSS**.
 
-# Installation
+## 🚀 Quick Start
 
+1. Install Dependencies
 ```npm install```
 
+2. Run on local host
 ```npm run dev```
