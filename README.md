@@ -42,11 +42,11 @@ JWT_SECRET=your-jwt-secret
 ```
 
 #### 4. Run the application
-1. Frontend
 ```bash
+#frontend
 npm run dev
 ```
-2. Backend
 ```bash
+#backend
 npm run server
 ```
