@@ -46,7 +46,7 @@ const Register = () => {
       return handleError("Fill out all the fields")
     }
     try {
-      const url="http://localhost:5001/api/auth/signup";
+      const url="https://pulse-website.onrender.com/api/auth/signup";
       const response=await fetch(url,{
         method:"POST",
         headers:{
