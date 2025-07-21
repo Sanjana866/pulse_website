@@ -9,38 +9,39 @@ const Method = () => {
   const sectionRef = useRef();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.4 }
-    );
+  window.scrollTo({ top: 0, behavior: 'auto' });
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    },
+    { threshold: 0.2 }
+  );
 
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
-  }, []);
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current);
+  }
+
+  return () => {
+    if (sectionRef.current) observer.unobserve(sectionRef.current);
+  };
+}, []);
+
 
   return (
-    <>
-      <section className="h-[50vh] flex items-center justify-center bg-gradient-to-t from-[#82B171]/65 to-[#82B171]/35">
+    <div>
+      <div 
+      ref={sectionRef}
+      className={`h-[50vh] flex items-center justify-center bg-gradient-to-t from-[#82B171]/65 to-[#82B171]/35 transition-all duration-1000 ${
+          isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-4'}`}>
         <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#612D2D]/45 to-[#612D2D]">
         HOW IT WORKS</h1>
-      </section>        
+      </div>        
 
       
-      <section
-        ref={sectionRef}
-        className={`flex flex-wrap justify-center gap-8 px-4 py-20 md:px-16 transition-all duration-1000 ${
-          isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-4'
-        }`}
-      >
+      <div className="flex flex-wrap justify-center gap-8 px-4 py-20 md:px-16">
         {[
           {
             step: '1',
@@ -72,8 +73,8 @@ const Method = () => {
             <p className="mt-6 text-gray-700 text-sm leading-relaxed">{text}</p>
           </div>
         ))}
-      </section>
-    </>
+      </div>
+    </div>
   );
 };
 
