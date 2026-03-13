@@ -29,11 +29,8 @@ export const signup=async(req,res)=>{
 
 export const login = async(req,res)=>{
     try {
-
         const {email, password} = req.body;
-
         const user = await UserModel.findOne({email});
-
         if(!user){
             return res.status(403)
                 .json({message:"Please check your details again", success:false});
@@ -45,8 +42,6 @@ export const login = async(req,res)=>{
             return res.status(403)
                 .json({message:"Please check your details again", success:false});
         }
-
-        // Generate OTP
         const otp = Math.floor(100000 + Math.random()*900000).toString();
 
         user.otp = otp;
