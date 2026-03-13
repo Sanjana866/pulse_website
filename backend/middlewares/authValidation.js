@@ -26,3 +26,19 @@ export const loginValidation=(req,res,next)=>{
     }
     next();
 }
+
+export const otpValidation=(req,res,next)=>{
+    const schema=Joi.object({
+        userId:Joi.string().required(),
+        otp:Joi.string().length(6).required()
+    });
+
+    const {error}=schema.validate(req.body);
+
+    if(error){
+        return res.status(400)
+            .json({message:"Bad request", error})
+    }
+
+    next();
+}

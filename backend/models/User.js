@@ -15,6 +15,20 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  mfaEnabled:{
+    type:Boolean,
+    default:true
+  },
+
+  otp:{
+    type:String
+  },
+
+  otpExpires:{
+    type:Date
+  }
+
 });
 
 const User= mongoose.model('User', UserSchema);
